@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Yifan-Vincent</title>
+  <title>Yifan</title>
   
   <subtitle>Yifan-Vincent&#39;s Blog</subtitle>
   <link href="https://tianyifan-vincent.github.io/atom.xml" rel="self"/>
   
   <link href="https://tianyifan-vincent.github.io/"/>
-  <updated>2021-08-18T15:12:32.380Z</updated>
+  <updated>2021-08-20T06:36:24.401Z</updated>
   <id>https://tianyifan-vincent.github.io/</id>
   
   <author>
@@ -17,18 +17,21 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
+    <title>Markdown语法及快捷键</title>
     <link href="https://tianyifan-vincent.github.io/2021/081816107.html"/>
     <id>https://tianyifan-vincent.github.io/2021/081816107.html</id>
     <published>2021-08-18T10:18:42.218Z</published>
-    <updated>2021-08-18T15:12:32.380Z</updated>
+    <updated>2021-08-20T06:36:24.401Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+    <summary type="html">&lt;p&gt;记录一下Markdown语法，以便自己忘记时查看。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;#&lt;/code&gt;: 一级标题&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;##&lt;/code&gt;: 二级标题&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;###&lt;/code&gt;:</summary>
         
       
     
