@@ -6,7 +6,7 @@
   <link href="https://tianyifan-vincent.github.io/atom.xml" rel="self"/>
   
   <link href="https://tianyifan-vincent.github.io/"/>
-  <updated>2021-08-20T06:36:24.401Z</updated>
+  <updated>2021-08-20T07:11:26.416Z</updated>
   <id>https://tianyifan-vincent.github.io/</id>
   
   <author>
@@ -18,25 +18,33 @@
   
   <entry>
     <title>Markdown语法及快捷键</title>
-    <link href="https://tianyifan-vincent.github.io/2021/081816107.html"/>
-    <id>https://tianyifan-vincent.github.io/2021/081816107.html</id>
-    <published>2021-08-18T10:18:42.218Z</published>
-    <updated>2021-08-20T06:36:24.401Z</updated>
+    <link href="https://tianyifan-vincent.github.io/2021/082025151.html"/>
+    <id>https://tianyifan-vincent.github.io/2021/082025151.html</id>
+    <published>2021-08-20T06:25:00.000Z</published>
+    <updated>2021-08-20T07:11:26.416Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;记录一下Markdown语法，以便自己忘记时查看。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;#&lt;/code&gt;: 一级标题&lt;/p&gt;
+    <summary type="html">&lt;p&gt;&lt;code&gt;#&lt;/code&gt;: 一级标题&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;##&lt;/code&gt;: 二级标题&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;###&lt;/code&gt;:</summary>
+&lt;p&gt;&lt;code&gt;###&lt;/code&gt;: 三级标题&lt;/p&gt;
+&lt;p&gt;每写完一个段落要隔一行空行.&lt;/p&gt;
+&lt;p&gt;就像这样, 隔了一行空行.&lt;/p&gt;
+&lt;p&gt;ctrl+k</summary>
         
       
     
     
     
+    <category term="Markdown" scheme="https://tianyifan-vincent.github.io/categories/Markdown/"/>
+    
+    
+    <category term="Markdown" scheme="https://tianyifan-vincent.github.io/tags/Markdown/"/>
+    
+    <category term="vscode" scheme="https://tianyifan-vincent.github.io/tags/vscode/"/>
     
   </entry>
   
