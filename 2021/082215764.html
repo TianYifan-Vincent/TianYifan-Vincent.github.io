@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Markdown语法及快捷键, 生活,编程,阅读,音乐,电影">
+    <meta name="keywords" content="C++ STL, 生活,编程,阅读,音乐,电影">
     <meta name="description" content="前进的方向除了道路还有内心">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Markdown语法及快捷键 | Yifan</title>
+    <title>C++ STL | Yifan</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -292,12 +292,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Markdown语法及快捷键</h1>
+                    <h1 class="description center-align post-title">C++ STL</h1>
                 </div>
             </div>
         </div>
@@ -413,12 +413,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Markdown/">
-                                <span class="chip bg-color">Markdown</span>
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
                             </a>
                         
-                            <a href="/tags/vscode/">
-                                <span class="chip bg-color">vscode</span>
+                            <a href="/tags/STL/">
+                                <span class="chip bg-color">STL</span>
                             </a>
                         
                     </div>
@@ -429,8 +429,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Markdown/" class="post-category">
-                                Markdown
+                            <a href="/categories/C-STL/" class="post-category">
+                                C++ STL
                             </a>
                         
                     </div>
@@ -442,7 +442,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-20
+                    2021-08-22
                 </div>
                 
 
@@ -456,14 +456,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    3.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    13 分
                 </div>
                 
 
@@ -483,141 +483,220 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><code>#</code>: 一级标题</p>
-<p><code>##</code>: 二级标题</p>
-<p><code>###</code>: 三级标题</p>
-<p>每写完一个段落要隔一行空行.</p>
-<p>就像这样, 隔了一行空行.</p>
-<p>ctrl+k +v: Markdown 预览快捷键</p>
-<p><code>---</code>: 分割线</p>
-<p><code>**</code>: <strong>重点加粗</strong></p>
-<p><code>*a*</code>: <em>斜体</em></p>
-<p><code>~~a~~</code>:  <del>删除线</del></p>
-<p><code>==高亮==</code></p>
-<hr>
-<p>列表:</p>
+                <p><strong>STL里sort算法用的是什么排序算法？</strong></p>
+<p><strong>实现逻辑</strong></p>
+<p>STL的sort算法，数据量大时采用<strong>QuickSort快排算法</strong>，分段归并排序。一旦分段后的数据量小于某个门槛，为避免QuickSort快排的递归调用带来过大的额外负荷，就改用<strong>Insertion Sort插入排序</strong>。如果递归层次过深，还会改用<strong>HeapSort堆排序</strong>。</p>
+<img src="https://pic1.zhimg.com/80/v2-8fa032e195365f77fb6b980a4ed71958_1440w.jpg" style="zoom:33%;">
+
+<p>结合快速排序-插入排序-堆排序 三种排序算法。</p>
+<h2 id="for-auto-a-b"><a href="#for-auto-a-b" class="headerlink" title="for(auto a:b)"></a>for(auto a:b)</h2><p>for(auto a:b)中b为一个容器，效果是利用a<strong>遍历并获得b容器</strong>中的每一个值，但是a无法影响到b容器中的元素。</p>
+<pre class="line-numbers language-c++"><code class="language-c++">vector<int> arr;
+arr.push_back(1);
+arr.push_back(2);
+
+for (auto n : arr)
+{
+    cout << n << endl;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>for(auto &amp;a:b)中加了引用符号，可以对容器中的内容进行赋值，即可通过对a赋值来做到容器b的内容填充。</p>
+<h2 id="map与unordered-map"><a href="#map与unordered-map" class="headerlink" title="map与unordered_map"></a>map与unordered_map</h2><p><strong>需要引入的头文件不同</strong><br>map: #include &lt; map &gt;<br>unordered_map: #include &lt; unordered_map &gt;</p>
+<p><strong>内部实现机理不同</strong><br>map： map内部实现了一个红黑树（红黑树是非严格平衡二叉搜索树，而AVL是严格平衡二叉搜索树），红黑树具有自动排序的功能，因此map内部的所有元素都是有序的，红黑树的每一个节点都代表着map的一个元素。因此，对于map进行的查找，删除，添加等一系列的操作都相当于是对红黑树进行的操作。map中的元素是按照二叉搜索树（又名二叉查找树、二叉排序树，特点就是左子树上所有节点的键值都小于根节点的键值，右子树所有节点的键值都大于根节点的键值）存储的，使用中序遍历可将键值按照从小到大遍历出来。<br>unordered_map: unordered_map内部实现了一个哈希表（也叫散列表，通过把关键码值映射到Hash表中一个位置来访问记录，查找的时间复杂度可达到O(1)，其在海量数据处理中有着广泛应用）。因此，其元素的排列顺序是无序的。哈希表详细介绍</p>
+<p><strong>优缺点以及适用处</strong><br>map：</p>
+<p>优点：</p>
+<p>有序性，这是map结构最大的优点，其元素的有序性在很多应用中都会简化很多的操作<br>红黑树，内部实现一个红黑书使得map的很多操作在lgn的时间复杂度下就可以实现，因此效率非常的高<br>缺点： 空间占用率高，因为map内部实现了红黑树，虽然提高了运行效率，但是因为每一个节点都需要额外保存父节点、孩子节点和红/黑性质，使得每一个节点都占用大量的空间</p>
+<p>适用处：对于那些有顺序要求的问题，用map会更高效一些</p>
+<p>unordered_map：</p>
+<p>优点： 因为内部实现了哈希表，因此其查找速度非常的快<br>缺点： 哈希表的建立比较耗费时间<br>适用处：对于查找问题，unordered_map会更加高效一些，因此遇到查找问题，常会考虑一下用unordered_map<br>总结：</p>
+<p>内存占有率的问题就转化成红黑树 VS hash表 , 还是unorder_map占用的内存要高。<br>但是unordered_map执行效率要比map高很多<br>对于unordered_map或unordered_set容器，其遍历顺序与创建该容器时输入的顺序不一定相同，因为遍历是按照哈希表从前往后依次遍历的<br><strong>map和unordered_map的使用</strong><br>unordered_map的用法和map是一样的，提供了 insert，size，count等操作，并且里面的元素也是以pair类型来存贮的。其底层实现是完全不同的，上方已经解释了，但是就外部使用来说却是一致的。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span>  </span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;unordered_map></span>  </span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;map></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string></span>  </span>
+using namespace std<span class="token punctuation">;</span>  
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  
+<span class="token punctuation">{</span>  
+    <span class="token comment" spellcheck="true">//注意：C++11才开始支持括号初始化</span>
+    unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> string<span class="token operator">></span> myMap<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token string">"张大"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token string">"李五"</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//使用{}赋值</span>
+    myMap<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"李四"</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//使用[ ]进行单个插入，若已存在键值2，则赋值修改，若无则插入。</span>
+    myMap<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> string<span class="token operator">></span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">"陈二"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//使用insert和pair插入</span>
+  
+    <span class="token comment" spellcheck="true">//遍历输出+迭代器的使用</span>
+    <span class="token keyword">auto</span> iter <span class="token operator">=</span> myMap<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//auto自动识别为迭代器类型unordered_map&lt;int,string>::iterator</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>iter<span class="token operator">!=</span> myMap<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>  
+        cout <span class="token operator">&lt;&lt;</span> iter<span class="token operator">-></span>first <span class="token operator">&lt;&lt;</span> <span class="token string">","</span> <span class="token operator">&lt;&lt;</span> iter<span class="token operator">-></span>second <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>  
+        <span class="token operator">++</span>iter<span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+    
+    <span class="token comment" spellcheck="true">//查找元素并输出+迭代器的使用</span>
+    <span class="token keyword">auto</span> iterator <span class="token operator">=</span> myMap<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//find()返回一个指向2的迭代器</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>iterator <span class="token operator">!=</span> myMap<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        cout <span class="token operator">&lt;&lt;</span> endl<span class="token operator">&lt;&lt;</span> iterator<span class="token operator">-></span>first <span class="token operator">&lt;&lt;</span> <span class="token string">","</span> <span class="token operator">&lt;&lt;</span> iterator<span class="token operator">-></span>second <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>  
+    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"pause"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>  
+<span class="token punctuation">}</span>  
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Stack和pair的基本用法"><a href="#Stack和pair的基本用法" class="headerlink" title="Stack和pair的基本用法"></a>Stack和pair的基本用法</h2><p><strong>Stack(栈)是一种后进先出的数据结构</strong><br>使用STL的STACK需要的头文件</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stack></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="Stack的构造"><a href="#Stack的构造" class="headerlink" title="Stack的构造"></a>Stack的构造</h3><pre class="line-numbers language-c"><code class="language-c">stack<span class="token operator">&lt;</span> <span class="token keyword">int</span> <span class="token operator">></span> first <span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 构造一个存放int类型的空栈，size=0；</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="成员函数"><a href="#成员函数" class="headerlink" title="成员函数"></a>成员函数</h3><p><strong>push</strong></p>
+<pre class="line-numbers language-c"><code class="language-c">mystack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>   
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>push函数将参数元素加入栈中，没有返回值（例如这里循环将0,1,2,3,4加入栈中，注意栈顶元素是4）</p>
+<p><strong>size</strong></p>
+<pre class="line-numbers language-c"><code class="language-c">mystack<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>size函数返回栈的大小（如果有5个元素，size=5）</p>
+<p><strong>empty</strong></p>
+<pre class="line-numbers language-c"><code class="language-c">mystack<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>empty函数返回一个bool值，栈为空时返回true，否则返回false</p>
+<p><strong>top</strong></p>
+<pre class="line-numbers language-c"><code class="language-c">mystack<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>top函数的返回值是栈顶元素（注意并没有删掉栈顶元素</p>
+<p><strong>pop</strong></p>
+<pre class="line-numbers language-c"><code class="language-c">mystack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>pop函数将栈顶元素删掉，没有返回值</p>
+<p><strong>emplace</strong></p>
+<pre class="line-numbers language-c"><code class="language-c">stack<span class="token operator">&lt;</span>Node<span class="token operator">></span> mystack<span class="token punctuation">;</span>
+mystack<span class="token punctuation">.</span><span class="token function">emplace</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>emplace函数可以将一个元素加入栈中，与push的区别在于：emplace可以直接传入Node的构造函数的参数，并将构造的元素加入栈中<br>mystack.push(1,2); //编译不通过，要达到上面的效果需要手动构造，例如mystack.push(Node(1,2));</p>
+<pre class="line-numbers language-c"><code class="language-c">Node p <span class="token operator">=</span> mystack<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+cout <span class="token operator">&lt;&lt;</span> p<span class="token punctuation">.</span>a <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span> <span class="token operator">&lt;&lt;</span> p<span class="token punctuation">.</span>b <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+stack<span class="token operator">&lt;</span>Node<span class="token operator">></span> my2<span class="token punctuation">;</span>
+my2<span class="token punctuation">.</span><span class="token function">swap</span><span class="token punctuation">(</span>mystack<span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token comment" spellcheck="true">//swap函数可以交换两个栈的元素</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>pair</strong><br>pair是将2个数据组合成一组数据， pair的实现是一个结构体，主要的两个成员变量是first second 因为是使用struct不是class，所以可以直接使用pair的成员变量。。<br><strong>头文件</strong></p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;utility></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>类模板：</strong></p>
+<pre class="line-numbers language-c"><code class="language-c">template<span class="token operator">&lt;</span>class T1<span class="token punctuation">,</span>class T2<span class="token operator">></span> <span class="token keyword">struct</span> pair
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>参数：T1是第一个值的数据类型，T2是第二个值的数据类型。<br>功能：pair将一对值(T1和T2)组合成一个值，</p>
+<pre class="line-numbers language-c"><code class="language-c">pair<span class="token operator">&lt;</span>T1<span class="token punctuation">,</span> T2<span class="token operator">></span> <span class="token function">p1</span><span class="token punctuation">(</span>v1<span class="token punctuation">,</span> v2<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//创建一个pair对象，它的两个元素分别是T1和T2类型，其中first成员初始化为v1，second成员初始化为v2。</span>
+<span class="token function">make_pair</span><span class="token punctuation">(</span>v1<span class="token punctuation">,</span> v2<span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">// 以v1和v2的值创建一个新的pair对象，其元素类型分别是v1和v2的类型。</span>
+p1 <span class="token operator">&lt;</span> p2<span class="token punctuation">;</span>                    <span class="token comment" spellcheck="true">// 两个pair对象间的小于运算，其定义遵循字典次序：如 p1.first &lt; p2.first 或者 !(p2.first &lt; p1.first) &amp;&amp; (p1.second &lt; p2.second) 则返回true。</span>
+p1 <span class="token operator">==</span> p2；                  <span class="token comment" spellcheck="true">// 如果两个对象的first和second依次相等，则这两个对象相等；该运算使用元素的==操作符。</span>
+p1<span class="token punctuation">.</span>first<span class="token punctuation">;</span>                   <span class="token comment" spellcheck="true">// 返回对象p1中名为first的公有数据成员</span>
+p1<span class="token punctuation">.</span>second<span class="token punctuation">;</span>                 <span class="token comment" spellcheck="true">// 返回对象p1中名为second的公有数据成员</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>创建pair</strong><br>在创建pair对象时，必须提供两个类型名，两个对应的类型名的类型<strong>不必相同</strong></p>
+<pre class="line-numbers language-c"><code class="language-c">pair<span class="token operator">&lt;</span>string<span class="token punctuation">,</span> string<span class="token operator">></span> anon<span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">// 创建一个空对象anon，两个元素类型都是string</span>
+pair<span class="token operator">&lt;</span>string<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> word_count<span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// 创建一个空对象 word_count, 两个元素类型分别是string和int类型</span>
+pair<span class="token operator">&lt;</span>string<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span> line<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 创建一个空对象line，两个元素类型分别是string和vector类型</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="卡特兰数的应用"><a href="#卡特兰数的应用" class="headerlink" title="卡特兰数的应用"></a>卡特兰数的应用</h2><p>题目：12个高矮不同的人，排成两排，每排必须是从矮到高排列，而且第二排比对应的第一排的人高，问排列方式有多少种？</p>
+<p>​    从题目可知，要把12个人分成两排，而且每个人的身高都不一样，所以不管怎么分组，他们的身高都可以按从小到大排列，只是要求第二排比对应第一排的人高。<br><strong>思路是:<strong>把这个问题化成出栈次序（典型的卡特兰数的应用）求解。<br>因为每排有6个人，所以,设第一排的6个人分别为A,B,C,D,E,F（还不确定他们是12个人中的哪一个）<br>对这(A,B,C,D,E,F)执行入栈和出栈(从A到F)，从他们出栈序列就可以找到这A,B,C,D,E,F是12个人中的具体哪一个。<br><strong>方法是：</strong><br>假设这12个人的身高分别为1,2,3,4,5,6,7,8,9,10,11,12<br>设入栈为“1”，出栈为“0”，这样一系列的入栈和出栈就可以由一串1和0构成。例如出栈序列为A,B,C,D,E,F，则对应的这一串1和0为：101010101010。利用这串1和0，就可以找到这12个人哪个是第一排的，哪个是第二排的。把这12个人的身高从小到大排列，1,2,3,4,5,6,7,8,9,10,11,12  利用刚刚得到的那串1和0，和他们的身高序列一一对上。则对应1的身高为1,3,5,7,9,11；对应0的身高为2,4,6,8,10,12。1对应的其实就是第一排的人，0对应的就是第二排的人。再看看出栈序列为A,C,D,B,F,E对应的1和0串为101101001100，则第一排的身高序列为1,3,4,6,9,10;第二排的身高序列为2,5,7,8,11,12。这样，每一种出栈序列就对应每一种排列方式，而且是一一对应的。因为出栈序列是典型的卡特兰数的应用（百度百科就有举例),这样就可以很直接的写出结果</strong>C（12,6）/（6+1）=132</strong>，则总共有132种排列方式。<br><strong>下面解释为什么可以用那一串1和0就可以确定他们的排列方式</strong><br>​    因为出栈总是相对于入栈的，要想出栈，则必定先有入栈。所以1总是先于0出现，也就是说可以先找到身高比较矮的插入第一排，把身高比之前插入第一排的还要高的插入第二排（每一个0对应的身高都比前面所有的1对应的身高还要高，而且0和1的数量又是相等的，第几个1对应第几个0），这样就可以全部找到第二排比对应的第一排的人高的全部排列方式。不同的出栈序列决定不同的排列方式。有多少种出栈序列就有多少种排列方式，这样就很明显看出来是卡特兰数的应用了。</p>
+<h3 id="经典问题"><a href="#经典问题" class="headerlink" title="经典问题"></a><strong>经典问题</strong></h3><h3 id="2-1-进出栈序列"><a href="#2-1-进出栈序列" class="headerlink" title="2.1 进出栈序列"></a><strong>2.1 进出栈序列</strong></h3><p>这是一道 <strong>最经典</strong> 的入门级卡特兰数题目，如果能把这题看懂，相信后面的题目也能迎刃而解。</p>
+<p><strong>题目描述</strong></p>
+<p>n 个元素进栈序列为：1，2，3，4，…，n，则有多少种出栈序列。</p>
+<p><strong>思路</strong></p>
+<p>我们将进栈表示为 +1，出栈表示为 -1，则 1 3 2 的出栈序列可以表示为：+1 -1 +1 +1 -1 -1。</p>
+<p>&lt;img src=”<a target="_blank" rel="noopener" href="https://pic2.zhimg.com/80/v2-fe28b25ed263230250d0a3c68344b0d5_1440w.jpg&quot;style=&quot;zoom:50%;&quot;">https://pic2.zhimg.com/80/v2-fe28b25ed263230250d0a3c68344b0d5_1440w.jpg"style="zoom:50%;"</a> /&gt;</p>
+<p>根据栈本身的特点，每次出栈的时候，必定之前有元素入栈，即对于每个 -1 前面都有一个 +1 相对应。因此，出栈序列的 <strong>所有前缀和</strong> 必然大于等于 0，并且 +1 的数量 <strong>等于</strong> -1 的数量。</p>
+<p>接下来让我们观察一下 n = 3 的一种出栈序列：+1 -1 -1 +1 -1 +1。序列前三项和小于 0，显然这是个非法的序列。</p>
+<p>如果将 <strong>第一个</strong> 前缀和小于 0 的前缀，即前三项元素都进行取反，就会得到：-1 +1 +1 +1 -1 +1。此时有 3 + 1 个 +1 以及 3 - 1 个 -1。</p>
+<p>因为这个小于 0 的前缀和必然是 -1，且 -1 比 +1 多一个，取反后，-1 比 +1 少一个，则 +1 变为 n + 1 个，且 -1 变为 n - 1 个。进一步推广，对于 n 元素的每种非法出栈序列，都会对应一个含有 n + 1 个 +1 以及 n - 1个 -1 的序列。</p>
+<p>如何证明这两种序列是一一对应的？</p>
+<p>假设非法序列为 A，对应的序列为 B。每个 A 只有一个”<strong>第一个前缀和小于 0 的前缀</strong>“，所以每个 A 只能产生一个 B。而每个 B 想要还原到 A，就需要找到”<strong>第一个前缀和大于 0 的前缀</strong>“，显然 B 也只能产生一个 A。</p>
+<p><img src="https://pic3.zhimg.com/80/v2-1224b08274913efa2cd7dbb31f8e6262_1440w.jpg"></p>
+<p>每个 B 都有 n + 1 个 +1 以及 n - 1 个 -1，因此 B 的数量为 <img src="https://www.zhihu.com/equation?tex=C_%7B2n%7D%5E%7Bn+1%7D"> ，相当于在长度为 2n 的序列中找到<code>n + 1</code>个位置存放 +1。相应的，非法序列的数量也就等于 <img src="https://www.zhihu.com/equation?tex=C_%7B2n%7D%5E%7Bn+1%7D"> 。</p>
+<p>出栈序列的总数量共有 <img src="https://www.zhihu.com/equation?tex=C_%7B2n%7D%5E%7Bn%7D"> ，因此，合法的出栈序列的数量为 <img src="https://www.zhihu.com/equation?tex=C_%7B2n%7D%5E%7Bn%7D+-+C_%7B2n%7D%5E%7Bn+1%7D+=+%5Cfrac%7BC_%7B2n%7D%5En%7D%7Bn+++1%7D"> 。</p>
+<p>此时我们就得到了卡特兰数的通项 <img src="https://www.zhihu.com/equation?tex=%5Cfrac%7BC_%7B2n%7D%5En%7D%7Bn+++1%7D"> ，至于具体如何计算结果将会在后面进行介绍。</p>
+<h3 id="2-2-括号序列"><a href="#2-2-括号序列" class="headerlink" title="2.2 括号序列"></a><strong>2.2 括号序列</strong></h3><p><strong>题目描述</strong></p>
+<p>n 对括号，则有多少种 “括号匹配” 的括号序列</p>
+<img src="https://pic3.zhimg.com/80/v2-e5785ad4be18724da3059efd87307706_1440w.jpg" style="zoom:50%;">
+
+<p><strong>思路</strong></p>
+<p>左括号看成 +1，右括号看成 -1，那么就和上题的进出栈一样，共有 <img src="https://www.zhihu.com/equation?tex=%5Cfrac%7BC_%7B2n%7D%5En%7D%7Bn+++1%7D"> 种序列。</p>
+<h1 id="push-back-函数"><a href="#push-back-函数" class="headerlink" title="push_back()函数"></a>push_back()函数</h1><p>push_back()函数的用法</p>
+<p>函数将一个新的元素加到vector的最后面，位置为当前最后一个元素的下一个元素</p>
+<p>push_back() 在Vector最后添加一个元素（参数为要插入的值）</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//在vec尾部添加10</span>
+
+vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> vec<span class="token punctuation">;</span>
+vec<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//在容器中添加10</span>
+
+<span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> vec<span class="token punctuation">;</span>
+vec<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>或者再string中最后插入一个字符；</p>
+<pre class="line-numbers language-c"><code class="language-c">string str<span class="token punctuation">;</span>
+str<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token string">'d'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>类似的：</p>
+<p>pop_back() //移除最后一个元素</p>
+<p>clear()  //清空所有元素</p>
+<p>empty() //判断vector是否为空，如果返回true为空</p>
+<p>erase() // 删除指定元素</p>
+<h1 id="accumulate函数"><a href="#accumulate函数" class="headerlink" title="accumulate函数"></a>accumulate函数</h1><p>头文件</p>
+<p><code>#include &lt;numeric&gt;</code></p>
+<p>主要是用来累加容器里面的值，比如int、string之类，可以少写一个for循环</p>
 <ul>
-<li>无序列表<ul>
-<li>嵌套无序列表</li>
-<li>嵌套无序列表</li>
+<li>比如直接统计 <code>vector&lt;int&gt; v </code>里面所有元素的和：（第三个参数的0表示sum的初始值为0）</li>
 </ul>
-</li>
-<li>无序列表</li>
-<li>无序列表</li>
+<p><code>int sum = accumulate(v.begin(), v.end(), 0);</code></p>
+<ul>
+<li>比如直接将<code>vector&lt;string&gt; v</code>里面所有元素一个个累加到string str中：（第三个元素表示str的初始值为空字符串）</li>
+</ul>
+<p><code>string str = accumulate(v.begin(), v.end(), "");</code></p>
+<h1 id="C的printf与scanf的用法"><a href="#C的printf与scanf的用法" class="headerlink" title="C的printf与scanf的用法"></a>C的printf与scanf的用法</h1><ul>
+<li>在C++中，是#include<iostream>.而在C中是#include&lt;stdio.h&gt;</iostream></li>
 </ul>
 <ol>
-<li>有序列表 1<ol>
-<li>嵌套有序列表 1</li>
-<li>嵌套有序列表 2</li>
+<li>printf的用法是：printf(“格式控制字符串”，输出参数一，输出参数二);</li>
 </ol>
-</li>
-<li>有序列表 2</li>
-<li>有序列表 3</li>
+<p>格式控制字符串包含：格式控制说明，普通字符</p>
+<p>​    格式控制说明主要是按指定的格式输出数据，包含以%开头的格式控制字符，不同类型的数据采用不同的格式控制字符（int型用%d,float和double用%f）</p>
+<p>​    普通字符就是在输出数据的时候，按照原样输出的字符如：”fahr=%d,celsius=%d\n”中的fahr=，celsius=这些</p>
+<ol start="2">
+<li>scanf的用法是：scanf(“格式控制字符串”,输入参数一，输入参数二)；</li>
 </ol>
-<p>任务列表:</p>
-<p><code>- [x] 已经完成的事 1</code><br><code>- [x] 已经完成的事 2</code><br><code>- [x] 已经完成的事 3</code><br><code>- [ ] 仍未完成的事 4</code><br><code>- [ ] 仍未完成的事 5</code></p>
-<hr>
-<p>引用文本:</p>
-<p><code>&gt; 引用别人的话</code> </p>
-<blockquote>
-<p>引用别人说的话<br>就这样写<br>By. OrangeX4</p>
-</blockquote>
-<hr>
-<p>这是 <code>行内代码</code> 语法.</p>
-<p>代码块语法:</p>
-<p><code>```</code> python {.line-numbers}<br>print(“Hello, World!”)<br><code>```</code></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello, World!"</span><span class="token punctuation">)</span>
-</code></pre>
-<hr>
-<p><code>[超链接名称](链接地址)</code></p>
-<p><a href="%E9%93%BE%E6%8E%A5%E5%9C%B0%E5%9D%80">超链接名称</a></p>
-<p><code>![图片提示语](图片地址)</code></p>
-<p><img src="%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80" alt="图片提示语"></p>
-<hr>
-<p>表格:</p>
-<p>`| 表头 | 表头 |<br>| —- | —- |<br>| 内容 | 内容 |<br>| 内容 | 内容 |</p>
-<table>
-<thead>
-<tr>
-<th>表头</th>
-<th>表头</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>内容</td>
-<td>内容</td>
-</tr>
-<tr>
-<td>内容</td>
-<td>内容</td>
-</tr>
-</tbody></table>
-<!-- 自动表格对齐: Shift + Alt + F -->
-<hr>
-<!-- 注释: -->
-
-<!-- 你看不见我 ctrl+/ -->
-
-<h1 id="数学公式支持"><a href="#数学公式支持" class="headerlink" title="数学公式支持"></a>数学公式支持</h1><p>行内公式: </p>
-<p>单位圆 $x^2+y^2=1$</p>
-<p>公式块:</p>
-<p>$$<br>\begin{cases}<br>x=\rho\cos\theta \<br>y=\rho\sin\theta \<br>\end{cases}<br>$$</p>
-<hr>
-<h2 id="1-上标和下标"><a href="#1-上标和下标" class="headerlink" title="1. 上标和下标"></a>1. 上标和下标</h2><p>上标 $x^2 + y^{12} = 1$</p>
-<p>上标 $x_1 + y_{12} = 1$</p>
-<hr>
-<h2 id="2-分式"><a href="#2-分式" class="headerlink" title="2. 分式"></a>2. 分式</h2><p>较小的行内行分数 $\frac{1}{2}$</p>
-<p>展示型的分式 $\displaystyle\frac{x+1}{x-1}$</p>
-<hr>
-<h2 id="3-科研"><a href="#3-科研" class="headerlink" title="3. 科研"></a>3. 科研</h2><p>开平方 $\sqrt{2}$</p>
-<p>开 $n$ 次方 $\sqrt[n]{2}$</p>
-<hr>
-<h2 id="4-空格"><a href="#4-空格" class="headerlink" title="4. 空格"></a>4. 空格</h2><p>紧贴 $a!b$</p>
-<p>没有空格 $ab$</p>
-<p>小空格 $a,b$</p>
-<p>中等空格 $a;b$</p>
-<p>大空格 $a\ b$</p>
-<p>quad 空格 $a\quad b$</p>
-<p>两个 quad 空格 $a\qquad b$</p>
-<hr>
-<h2 id="5-累加、累乘和积分"><a href="#5-累加、累乘和积分" class="headerlink" title="5. 累加、累乘和积分"></a>5. 累加、累乘和积分</h2><p>累加 $\sum_{k=1}^n\frac{1}{k}  \quad  \displaystyle\sum_{k=1}^n\frac{1}{k}$</p>
-<p>累乘 $\prod_{k=1}^n\frac{1}{k}  \quad  \displaystyle\prod_{k=1}^n\frac{1}{k}$</p>
-<p>积分 $\displaystyle \int_0^1x{\rm d}x  \quad  \iint_{D_{xy}}  \quad  \iiint_{\Omega_{xyz}}$</p>
-<hr>
-<h2 id="6-括号修饰"><a href="#6-括号修饰" class="headerlink" title="6. 括号修饰"></a>6. 括号修饰</h2><p>用 \left 和 \right 可以让括号适配内部大小</p>
-<p>圆括号 $\displaystyle \left(\sum_{k=1}^{n}\frac{1}{k} \right)^2$</p>
-<p>方括号 $\displaystyle \left[\sum_{k=1}^{n}\frac{1}{k} \right]^2$</p>
-<p>花括号 $\displaystyle \left{\sum_{k=1}^{n}\frac{1}{k} \right}^2$</p>
-<p>尖括号 $\displaystyle \left\langle\sum_{k=1}^{n}\frac{1}{k} \right\rangle^2$</p>
-<hr>
-<h2 id="7-多行算式对齐"><a href="#7-多行算式对齐" class="headerlink" title="7. 多行算式对齐"></a>7. 多行算式对齐</h2><p>居中:</p>
-<p>$$<br>\begin{aligned}<br>y &amp;=(x+5)^2-(x+1)^2 \<br>&amp;=(x^2+10x+25)-(x^2+2x+1) \<br>&amp;=8x+24 \<br>\end{aligned}<br>$$</p>
-<p>左对齐:</p>
-<p>$<br>\begin{aligned}<br>y &amp;=(x+5)^2-(x+1)^2 \<br>&amp;=(x^2+10x+25)-(x^2+2x+1) \<br>&amp;=8x+24 \<br>\end{aligned}<br>$</p>
-<hr>
-<h2 id="8-方程组"><a href="#8-方程组" class="headerlink" title="8. 方程组"></a>8. 方程组</h2><p>$$<br>\begin{cases}<br>k_{11}x_1+k_{12}x_2+\cdots+k_{1n}x_n=b_1 \<br>k_{21}x_1+k_{22}x_2+\cdots+k_{2n}x_n=b_2 \<br>\cdots \<br>k_{n1}x_1+k_{n2}x_2+\cdots+k_{nn}x_n=b_n \<br>\end{cases}<br>$$</p>
-<hr>
-<h2 id="9-矩阵"><a href="#9-矩阵" class="headerlink" title="9. 矩阵"></a>9. 矩阵</h2><p>矩阵:</p>
-<p>$$<br>\begin{pmatrix}<br>1 &amp; 1 &amp; \cdots &amp; 1 \<br>1 &amp; 1 &amp; \cdots &amp; 1 \<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>1 &amp; 1 &amp; \cdots &amp; 1 \<br>\end{pmatrix}<br>$$</p>
-<p>$$<br>\begin{bmatrix}<br>1 &amp; 1 &amp; \cdots &amp; 1 \<br>1 &amp; 1 &amp; \cdots &amp; 1 \<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>1 &amp; 1 &amp; \cdots &amp; 1 \<br>\end{bmatrix}<br>$$ </p>
-<p>行列式: </p>
-<p>$$<br>\begin{vmatrix}<br>1 &amp; 1 &amp; \cdots &amp; 1 \<br>1 &amp; 1 &amp; \cdots &amp; 1 \<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>1 &amp; 1 &amp; \cdots &amp; 1 \<br>\end{vmatrix}<br>$$</p>
-<hr>
-<h2 id="10-特殊字符"><a href="#10-特殊字符" class="headerlink" title="10. 特殊字符"></a>10. 特殊字符</h2><p>可以搜索 “Latex 符号表”</p>
-<hr>
-<h2 id="11-零碎的重要语法"><a href="#11-零碎的重要语法" class="headerlink" title="11. 零碎的重要语法"></a>11. 零碎的重要语法</h2><p>点乘 $\cdot$, 叉乘 $\times$, 异或 $\otimes$, 直和 $\oplus$, 加减 $\pm$, 复合 $\circ$.<br>小于等于 $\leq$, 大于等于 $\geq$, 不等 $\neq$, 恒等 $\equiv$, 约等 $\approx$, 等价 $\cong$, 相似 $\sim$, 相似等于 $\simeq$, 点等 $\doteq$.<br>逻辑与 $\land$, 逻辑或 $\lor$, 逻辑非 $\lnot$, 蕴涵 $\to$, 等价 $\leftrightarrow$.<br>因为 $\because$, 所以 $\therefore$, 存在 $\exist$, 任意 $\forall$.<br>左小箭头 $\leftarrow$, 右小箭头 $\rightarrow$, 左大箭头 $\Leftarrow$, 右大箭头 $\Rightarrow$, 右长箭头 $\xrightarrow[fgh]{abcde}$.<br>属于 $\in$, 包含于 $\subset$, 真包含于 $\subseteq$, 交 $\cap$, 并 $\cup$, 空集 $\empty$<br>短向量 $\vec{x}$, 长向量 $\overrightarrow{AB}$, 上横线 $\overline{p}$.<br>无限 $\infty$, 极限 $\lim$, 微分 ${\rm d}$, 偏导 $\partial$, 点求导 $\dot{y}$, 点二阶导 $\ddot{y}$, 变化量 $\Delta$, 梯度 $\nabla$.<br>横省略 $\cdots$, 竖省略 $\vdots$, 斜省略 $\ddots$.<br>常见函数 $\sin$, $\cos$, $\tan$, $\arcsin$, $\arccos$, $\arctan$, $\ln$, $\log$, $\exp$.</p>
-<hr>
-<h1 id="VSCode-快捷键"><a href="#VSCode-快捷键" class="headerlink" title="VSCode 快捷键"></a>VSCode 快捷键</h1><p>原生快捷键<br>通用操作<br>Ctrl + C, 复制当前文本<br>Ctrl + V, 粘贴当前文本<br>Ctrl + Z, 撤销<br>Ctrl + Shift + Z, 反撤销<br>Shift + Alt + F, 整理代码<br>Ctrl + /, 将当前行注释 / 反注释, 当多行文本被选中时, 将多行文本注释<br>光标操作<br>Ctrl + ← 将光标向左移动一个单词<br>Ctrl + → 将光标向右移动一个单词<br>Ctrl + Alt + ↑, 向上加入一个光标<br>Ctrl + Alt + ↓, 向下加入一个光标<br>Ctrl + Alt + U, 撤销上次光标操作<br>界面移动<br>Ctrl + ↑ 向上移动当前界面<br>Ctrl + → 向下移动当前界面<br>选中操作<br>Shift + ← 向左选中 / 反选中一个字符 (重要)<br>Shift + → 向右选中 / 反选中一个字符 (重要)<br>Ctrl + Shift + ← 向左选中 / 反选中一个单词 (重要)<br>Ctrl + Shift + → 向右选中 / 反选中一个单词 (重要)<br>Ctrl + D 当前有选中文本时, 将下一个与其相同的文本加入选中 (重要)<br>文本行操作<br>Ctrl + C 当前无选中文本时, 复制当前行<br>Shift + Alt + ↑ 向上复制当前行, 当多行文本被选中时, 向上复制多行 (重要)<br>Shift + Alt + ↓ 向下复制当前行, 当多行文本被选中时, 向下复制多行 (重要)<br>Alt + ↑ 向上移动当前行, 当多行文本被选中时, 将当前多行文本向上移动 (重要)<br>Alt + ↓ 向下移动当前行, 当多行文本被选中时, 将当前多行文本向下移动 (重要)<br>插件增加的快捷键<br>Markdown 语法<br>Ctrl + B 当前有选中文本时, 将文本加粗<br>Ctrl + I 当前有选中文本时, 将文本变为斜体<br>Ctrl + M 进入数学公式模式 (加入美元符)<br>图片粘贴<br>Ctrl + Alt + V 粘贴剪贴板图片 (本地)<br>Ctrl + Alt + V 粘贴剪贴板图片 (图床)<br>光标操作<br>Ctrl + Alt + U 将多选光标变为单选<br>选中操作<br>Shift + Alt + ← 向左复制当前选中文本 (重要)<br>Shift + Alt + → 向右复制当前选中文本 (重要)<br>Alt + ← 向左移动当前选中文本一个字符 (重要)<br>Alt + → 向右移动当前选中文本一个字符 (重要)<br>Ctrl + Alt + ← 向左移动当前选中文本一个单词 (重要)<br>Ctrl + Alt + → 向右移动当前选中文本一个单词 (重要)<br>计算器功能<br>Ctrl + Shift + Alt + E 计算当前选中表达式, 用等号连接并输出<br>Ctrl + Shift + Alt + R 计算当前选中表达式, 并替换当前选中表达式<br>Ctrl + Shift + Alt + D 定义当前选中表达式, 无输出</p>
-<hr>
-<h2 id="hexo快捷键"><a href="#hexo快捷键" class="headerlink" title="hexo快捷键"></a>hexo快捷键</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo n <span class="token string">"My New Post"</span>
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Generate-hexo-生成静态网页"><a href="#Generate-hexo-生成静态网页" class="headerlink" title="Generate hexo (生成静态网页)"></a>Generate hexo (生成静态网页)</h3><pre class=" language-bash"><code class="language-bash">$ hexo g
-</code></pre>
-<h3 id="Deploy-hexo-将本地数据部署到仓库"><a href="#Deploy-hexo-将本地数据部署到仓库" class="headerlink" title="Deploy hexo (将本地数据部署到仓库)"></a>Deploy hexo (将本地数据部署到仓库)</h3><pre class=" language-bash"><code class="language-bash">$ hexo d
-</code></pre>
-<h3 id="Generate-hexo-生成并部署"><a href="#Generate-hexo-生成并部署" class="headerlink" title="Generate hexo (生成并部署)"></a>Generate hexo (生成并部署)</h3><pre class=" language-bash"><code class="language-bash">$ hexo g -d
-</code></pre>
+<p>格式控制字符串包含：格式控制说明，普通字符</p>
+<p>  格式控制字符串表示输入的格式，(int型用%d,float用%f,double型用%lf)</p>
+<p>  普通字符：和上面谈到的printf的用法是一样的</p>
+<p>  输入的参数是变量的地址，所以要在变量前面加&amp;</p>
+<p>——–格式控制说明———————————————————</p>
+<p>%d 十进制有符号整数<br>%u 十进制无符号整数<br>%f 浮点数<br>%s 字符串<br>%c 单个字符<br>%p 指针的值<br>%e 指数形式的浮点数<br>%x, %X 无符号以十六进制表示的整数<br>%0 无符号以八进制表示的整数<br>%g 自动选择合适的表示法 </p>
+<p>——一些特殊规定字符———————————————————–</p>
+<p>\n 换行<br>\f 清屏并换页<br>\r 回车<br>\t Tab符<br>\xhh 表示一个ASCII码用16进表示,<br>其中hh是1到2个16进制数</p>
+<p>例子：</p>
+<p>①</p>
+<pre class="line-numbers language-c"><code class="language-c">a<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span>b<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"a=%d,b=%d\n"</span><span class="token punctuation">,</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//a=100,b=10</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>②</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"enter x(x>=0):\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//enter x(x>=0):</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>③</p>
+<pre class="line-numbers language-c"><code class="language-c">x<span class="token operator">=</span><span class="token number">12</span><span class="token punctuation">,</span>y<span class="token operator">=</span><span class="token number">16</span><span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"y=f(%f)=%.2f\n"</span><span class="token punctuation">,</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//y=f(12.000000)=16.00</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>%f指定以小数形式输出浮点型数据，保留的是6位小数，而%.2f则指定输出的时候保留2位小数</p>
+<p>④</p>
+<pre class="line-numbers language-c"><code class="language-c">x<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%04d"</span><span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//0010</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>%04d 表示在输出一个小于4位的数值时, 将在前面补0使其总宽度为4位。</p>
+<p>⑤</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%lf"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//读取输入</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>调用scanf()函数输入数据，变量名x前面要加&amp;,%lf中的l是long的首字母,scanf函数的输入参数必须和格式控制字符串中的格式控制说明相对应，</p>
+<p>并且它们的类型，个数和位置要一一对`应。</p>
+<p>scanf(“%d%d%lf”,&amp;x,&amp;y,&amp;z)表示输入的x是int型的，y是int型的，z是double型的，这个就是一一对应</p>
 
                 
             </div>
@@ -644,7 +723,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://TianYifan-Vincent.github.io/2021/082025151.html">https://TianYifan-Vincent.github.io/2021/082025151.html</a>
+                    <a href="https://TianYifan-Vincent.github.io/2021/082215764.html">https://TianYifan-Vincent.github.io/2021/082215764.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -682,12 +761,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Markdown/">
-                                    <span class="chip bg-color">Markdown</span>
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
                                 </a>
                             
-                                <a href="/tags/vscode/">
-                                    <span class="chip bg-color">vscode</span>
+                                <a href="/tags/STL/">
+                                    <span class="chip bg-color">STL</span>
                                 </a>
                             
                         </div>
@@ -863,19 +942,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/082260911.html">
+                <a href="/2021/082261069.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Typora入门">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="HTML &amp; CSS">
                         
-                        <span class="card-title">Typora入门</span>
+                        <span class="card-title">HTML &amp; CSS</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            简要地记录了一些Typora的使用说明。
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -884,23 +963,11 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Typora/" class="post-category">
-                                    Typora
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            TianYifan-Vincent
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Typora/">
-                        <span class="chip bg-color">Typora</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -909,50 +976,45 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/082025151.html">
+                <a href="/2021/082264081.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Markdown语法及快捷键">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Python计算">
                         
-                        <span class="card-title">Markdown语法及快捷键</span>
+                        <span class="card-title">Python计算</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记录一下Markdown语法，以便自己忘记时查看。
+                            记录了Python计算这门课的所学知识以及Python的基础知识。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Markdown/" class="post-category">
-                                    Markdown
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Markdown/">
-                        <span class="chip bg-color">Markdown</span>
-                    </a>
-                    
-                    <a href="/tags/vscode/">
-                        <span class="chip bg-color">vscode</span>
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
